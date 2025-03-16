@@ -57,8 +57,7 @@ namespace Programmering_1
         public double CalculateFuelUsed(double kmPrLiter)
 
         {
-            /*
-            double fuelUsed = 0;
+            /*double fuelUsed = 0;
             if (distance > 0)
             {
                 fuelUsed = distance / kmPrLiter;
@@ -70,6 +69,9 @@ namespace Programmering_1
             return fuelUsed;
             */
 
+            /* Her tjekker koden først om køreturen er over 0 
+             * inden den laver beregning af brændstofforbrug
+             */
             if (Distance <= 0)
             {
                 Console.WriteLine("Fejl. Distance skal være over 0. Prøv igen.");
@@ -94,7 +96,7 @@ namespace Programmering_1
              * Returner den samlede pris.
              */
 
-            double tripPrice = 0;  // Jeg laver lokale variabler på tripPrice og literUsed, fordi ellers eksisterer de ikke.
+            double tripPrice = 0;  // Lav lokale variabler på tripPrice og literUsed, fordi ellers eksisterer de ikke.
             double literUsed = 0;
 
             if (Distance > 0)
@@ -124,7 +126,7 @@ namespace Programmering_1
             string start = Console.ReadLine();
             StartTime = DateTime.Parse(start);
 
-            Console.WriteLine("Oplys sluttidspunkt for din køretur. Eksempelvis: 12:55");
+            Console.WriteLine("Oplys sluttidspunkt for din køretur. Eksempelvis: 13:00");
             string slut = Console.ReadLine();
             EndTime = DateTime.Parse(slut);
         }
@@ -132,9 +134,9 @@ namespace Programmering_1
         public void PrintTripDetails()
         {
             Console.WriteLine("Turens afstand er: " + Distance);
-            Console.WriteLine("Hvilken dato er køreturen: " + TripDate); // Her vil datoen fremgå og klokkeslæt vil stå som 00:00:00)
-            Console.WriteLine("Hvornår startede køreturen? " + StartTime.ToString("hh:mm")); // Her udvælges, at kun klokkeslæt skal stå.
-            Console.WriteLine("Hvornår sluttede køreturen? " + EndTime.ToString("hh:mm")); // Husk: Skriv klokkeslæt med kolon, ellers er der fejl.
+            Console.WriteLine("Hvilken dato er køreturen: " + TripDate.ToString("dd:MM:yyyy")); // Her udvælges, at kun datoen fremgår, ikke klokkeslæt.
+            Console.WriteLine("Hvornår startede køreturen? " + StartTime.ToString("HH:mm")); // Her udvælges, at kun klokkeslæt skal stå.
+            Console.WriteLine("Hvornår sluttede køreturen? " + EndTime.ToString("HH:mm")); // Husk: Skriv klokkeslæt med kolon, ellers meldes der fejl.
         }
     }
 }

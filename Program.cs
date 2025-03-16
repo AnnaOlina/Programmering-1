@@ -1,4 +1,6 @@
-﻿namespace Programmering_1
+﻿using Programmering_1.MenuItems;
+
+namespace Programmering_1
 {
     internal class Program
     {
@@ -32,8 +34,8 @@
                     break;
 
                 case 3:
-                   
                     Console.WriteLine("\nIsPalindrome.");
+                    IsPalindromeMenuItem.TestIsPalindrome();
                     break;
 
                 case 4:

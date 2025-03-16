@@ -2,7 +2,7 @@
 {
     public class IsPalindromeMenuItem
     {
-        static public void TestIsPalindrome()
+        static public void StartIsPalindromeMenuItem()
         {
             Console.WriteLine("Er palindrom 456: " + IsPalindrome(456));
             Console.WriteLine("Er palindrom 1: " + IsPalindrome(1));

@@ -46,7 +46,7 @@
         private FuelType _fuelType;  // Her er typen en bestemt enum som oprettes længere nede i klassen.
         private char _gear;
         private int _year;
-        private int _odometer;
+        private double _odometer;
         private double _kmPrLiter;
 
         public string Brand // Det er en public property, hvor man har overskrevet get og set funktionaliteten.
@@ -121,7 +121,7 @@
             }
         }
 
-        public int Odometer
+        public double Odometer
         {
             get { return _odometer; }
             set
@@ -152,6 +152,68 @@
                     Console.WriteLine("Km pr./liter cannot be empty");
                 }
 
+            }
+        }
+
+
+        public void ReadCarDetails()
+        {
+            Console.WriteLine("Hvilket mærke er din bil?");
+            Brand = Console.ReadLine();
+
+            Console.WriteLine("Hvilken model er din bil?");
+            Model = Console.ReadLine();
+
+            Console.WriteLine("Hvad er brændstoftypen? OBS! Vælg et af følgende:\nBenzin, Diesel, Electric, Hybrid\nStart ordet med stort. ");
+            FuelType = (FuelType)Enum.Parse(typeof(FuelType), Console.ReadLine());
+
+            Console.WriteLine("Hvilket årstal er din bil fra?");
+            Year = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Har din bil automatiske eller manuelle gear?");
+            Gear = Console.ReadLine()[0];
+
+            Console.WriteLine("Hvad er kilometerstanden på bilen? ");
+            Odometer = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Hvor mange km kører bilen pr. liter?");
+            KmPrLiter = double.Parse(Console.ReadLine());
+        }
+
+        public void PrintCarDetails()
+        {
+            Console.WriteLine("Bilen er bilmærke: " + Brand);
+            Console.WriteLine("Dens model er: " + Model);
+            Console.WriteLine("Brændstoftypen er: " + FuelType);
+            Console.WriteLine("Den er fra årgang: " + Year);
+            Console.WriteLine("Den har geartype: " + Gear);
+            Console.WriteLine("Bilens kilometerstand er: " + Odometer);
+            Console.WriteLine("Den kører " + KmPrLiter + " km/liter.");
+        }
+
+        // Lav en liste over køreture (listen kaldes trips):
+
+        List<Trip> trips = new List<Trip>();
+
+        /* Opret metoden Drive() med et Trip-objekt som parameter
+         * som opdaterer bilens odometer
+         * og tilføjer turen til trips-listen.
+         * Det vil sige, at her gemmes de ture bilen har kørt.
+         */
+
+        public void Drive(Trip newTrip)
+        {
+            Odometer += newTrip.Distance;
+            trips.Add(newTrip);
+        }
+
+        // Opret metode PrintAllTrips() som lægger turene sammen.
+
+        public void PrintAllTrips()
+        {
+            for (int i = 0; i < trips.Count; i++)
+            {
+                trips[i].PrintTripDetails();
             }
         }
     }

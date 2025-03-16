@@ -30,12 +30,12 @@ namespace Programmering_1
 
                 case 2:
                     Console.WriteLine("\nDrive");
-                    
+                    DriveMenuItem.StartDriveMenu();
                     break;
 
                 case 3:
                     Console.WriteLine("\nIsPalindrome.");
-                    IsPalindromeMenuItem.TestIsPalindrome();
+                    IsPalindromeMenuItem.StartIsPalindromeMenuItem();
                     break;
 
                 case 4:

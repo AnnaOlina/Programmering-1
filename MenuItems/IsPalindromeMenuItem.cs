@@ -9,9 +9,15 @@
             Console.WriteLine("Er palindrom 132564721: " + IsPalindrome(132564721));
             Console.WriteLine("Er palindrom 9433: " + IsPalindrome(9433));
             Console.WriteLine("Er palindrom 55055: " + IsPalindrome(55055));
+            /* Jeg laver en WriteLine, hvor jeg beder brugeren indtaste km-stand i konsollen.
+             * Jeg kalder metoden IsPalindrome(), og parameteren heri skal være en int (heltal). 
+             * Det er ligemeget, om tallet skrives direkte ind som parameter,
+             * eller om det skrives ind med ReadLine.
+             * Man skal bare huske at "parse" ReadLine til int,
+             * fordi ReadLine ellers er en streng.
+             */
             Console.WriteLine("Indtast din kilomterstand (eller et stort tal), så ser vi om det er et Palindrom: ");
             Console.WriteLine(IsPalindrome(int.Parse(Console.ReadLine())));
-
         }
 
         static private bool IsPalindrome(int kilometerstand)

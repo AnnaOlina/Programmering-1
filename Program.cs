@@ -35,7 +35,7 @@ namespace Programmering_1
 
                 case 3:
                     Console.WriteLine("\nIsPalindrome.");
-                    IsPalindromeMenuItem.StartIsPalindromeMenuItem();
+                    IsPalindromeMenuItem.StartIsPalindromeMenu();
                     break;
 
                 case 4:

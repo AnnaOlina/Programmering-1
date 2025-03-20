@@ -8,7 +8,7 @@ namespace Programmering_1
 {
     internal class Engine
     {
-        private bool _isEngineOn; // Attribut, privat, flyttet fra klassen Car.
+        private bool _isEngineOn = false; // Attribut, privat, flyttet fra klassen Car.
 
         public bool IsEngineOn
         {
@@ -16,4 +16,4 @@ namespace Programmering_1
             set { _isEngineOn = value; }
         }
     }
-}
+} 

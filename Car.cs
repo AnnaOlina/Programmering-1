@@ -27,6 +27,7 @@
             _year = year;
             _odometer = odometer;
             _kmPrLiter = kmPrLiter;
+            _engine = new Engine();
         }
 
         public Car()
@@ -48,6 +49,7 @@
         private int _year;
         private double _odometer;
         private double _kmPrLiter;
+        private Engine _engine;
 
         public string Brand // Det er en public property, hvor man har overskrevet get og set funktionaliteten.
         {
@@ -155,6 +157,12 @@
             }
         }
 
+        public Engine Engine
+        {
+            get { return _engine; }
+            set { _engine = value; }
+        }
+
 
         public void ReadCarDetails()
         {
@@ -203,8 +211,24 @@
 
         public void Drive(Trip newTrip)
         {
+            if (Engine.IsEngineOn  == false)
+            {
+                Console.WriteLine("Du skal starte din " + Brand + " " + Model + " inden du kan køre en tur med den.");
+                return;
+            }
             Odometer += newTrip.Distance;
             trips.Add(newTrip);
+            Console.WriteLine("Nu har du kørt en tur med din " + Brand + " " + Model + ".");
+        }
+
+        public void TurnEngineOn()
+        {
+            Engine.IsEngineOn = true;
+        }
+
+        public void TurnEngineOff()
+        {
+            Engine.IsEngineOn = false;
         }
 
         // Opret metode PrintAllTrips() som lægger turene sammen.

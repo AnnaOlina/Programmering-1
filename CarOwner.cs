@@ -8,5 +8,6 @@ namespace Programmering_1
 {
     internal class CarOwner
     {
+        // Bilejer oprettes her på et tidspunkt.
     }
 }

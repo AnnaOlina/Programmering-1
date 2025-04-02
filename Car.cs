@@ -27,7 +27,24 @@
             _year = year;
             _odometer = odometer;
             _kmPrLiter = kmPrLiter;
-            _engine = new Engine();
+            _isEngineOn = true;
+        }
+
+        public Car(
+          string brand,
+          string model,
+          int year,
+          char gear)
+          //int odometer,
+          //double kmPrLiter)
+        {
+            _brand = brand;
+            _model = model;
+            _year = year;
+            _gear = gear;
+            //_odometer = odometer;
+            //_kmPrLiter = kmPrLiter;
+            //_isEngineOn = true;
         }
 
         public Car()
@@ -49,7 +66,8 @@
         private int _year;
         private double _odometer;
         private double _kmPrLiter;
-        private Engine _engine;
+        private bool _isEngineOn;
+        List<Trip> _trips = new List<Trip>();
 
         public string Brand // Det er en public property, hvor man har overskrevet get og set funktionaliteten.
         {
@@ -157,12 +175,11 @@
             }
         }
 
-        public Engine Engine
+        public bool IsEngineOn
         {
-            get { return _engine; }
-            set { _engine = value; }
+            get { return _isEngineOn; }
+            set { _isEngineOn = value; }
         }
-
 
         public void ReadCarDetails()
         {
@@ -176,7 +193,7 @@
             FuelType = (FuelType)Enum.Parse(typeof(FuelType), Console.ReadLine());
 
             Console.WriteLine("Hvilket årstal er din bil fra?");
-            Year = Convert.ToInt32(Console.ReadLine());
+            Year = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Har din bil automatiske eller manuelle gear?");
             Gear = Console.ReadLine()[0];
@@ -201,43 +218,41 @@
 
         // Lav en liste over køreture (listen kaldes trips):
 
-        List<Trip> trips = new List<Trip>();
-
         /* Opret metoden Drive() med et Trip-objekt som parameter
          * som opdaterer bilens odometer
          * og tilføjer turen til trips-listen.
          * Det vil sige, at her gemmes de ture bilen har kørt.
          */
 
-        public void Drive(Trip newTrip)
+        public void Drive(Trip nyKøretur)
         {
-            if (Engine.IsEngineOn  == false)
+            if (IsEngineOn  == false)
             {
                 Console.WriteLine("Du skal starte din " + Brand + " " + Model + " inden du kan køre en tur med den.");
                 return;
             }
-            Odometer += newTrip.Distance;
-            trips.Add(newTrip);
+            Odometer += nyKøretur.Distance;
+            _trips.Add(nyKøretur);
             Console.WriteLine("Nu har du kørt en tur med din " + Brand + " " + Model + ".");
         }
 
         public void TurnEngineOn()
         {
-            Engine.IsEngineOn = true;
+            IsEngineOn = true;
         }
 
         public void TurnEngineOff()
         {
-            Engine.IsEngineOn = false;
+            IsEngineOn = false;
         }
 
         // Opret metode PrintAllTrips() som lægger turene sammen.
 
         public void PrintAllTrips()
         {
-            for (int i = 0; i < trips.Count; i++)
+            for (int i = 0; i < _trips.Count; i++)
             {
-                trips[i].PrintTripDetails();
+                _trips[i].PrintTripDetails();
             }
         }
     }

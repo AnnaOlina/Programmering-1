@@ -11,9 +11,8 @@ namespace Programmering_1.MenuItems
     {
         public static void StartDriveMenu()
         {
-            Console.WriteLine("Opretter Aygo");
-            Console.WriteLine();
-
+            Console.WriteLine("Opretter Aygo\n");
+           
             /* Instantiere (lave) et Car-objekt (ellers findes det ikke)
              * Hvad er hvad på følgende linje, hvor Car-objekt instantieres?
              * - Car = klasse (her en datatype til vores variabel bil1)
@@ -43,7 +42,7 @@ namespace Programmering_1.MenuItems
             double fuelTur1 = tur1.CalculateFuelUsed(bil1.KmPrLiter); // Her tages km/l fra bil1
             double TripPriceTur1 = tur1.CalculateTripPrice(bil1.KmPrLiter, 13.5);  // Man skal altid skrive double, når man vil lave en ny varieabel som f.eks. her.
             
-            // Vi starter bilen (bil1) og kører en tur (tur1).
+            // Vi starter bilen (bil1) og kører en tur (bil1, tur1).
             bil1.TurnEngineOn();
             bil1.Drive(tur1);
             Console.WriteLine();
@@ -51,6 +50,7 @@ namespace Programmering_1.MenuItems
             // Her laver vi en ny køretur, tur2.
             Trip tur2 = new Trip();
             tur2.ReadTripDetails();
+            Console.WriteLine();
 
             // Vi laver en beregning af tur2 med bil1:
             double fuelTur2 = tur2.CalculateFuelUsed(bil1.KmPrLiter);

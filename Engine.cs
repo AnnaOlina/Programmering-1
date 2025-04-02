@@ -8,12 +8,6 @@ namespace Programmering_1
 {
     internal class Engine
     {
-        private bool _isEngineOn = false; // Attribut, privat, flyttet fra klassen Car.
-
-        public bool IsEngineOn
-        {
-            get { return _isEngineOn; }
-            set { _isEngineOn = value; }
-        }
+        // Motorens hestekræfter oprettes her.       
     }
 } 

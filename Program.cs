@@ -4,6 +4,9 @@ namespace Programmering_1
 {
     internal class Program
     {
+        /* Lav et privat felt, hvor jeg kan gemme en bil
+         * private static Car bil
+         */
         static void Main(string[] args)
         {
             Console.WriteLine("Hovedmenu\nTast relevant tal og tryk enter for at valg af nedenstående: \n");
@@ -25,7 +28,7 @@ namespace Programmering_1
             {
                 case 1:
                     Console.WriteLine("\nReadCarDetails.");
-                    
+                    ReadCarDetailsMenuItem.StartReadCarDetailsMenu();
                     break;
 
                 case 2:
@@ -40,7 +43,7 @@ namespace Programmering_1
 
                 case 4:
                     Console.WriteLine("\nPrint Car Details.");
-                    
+                    PrintCarDetailsMenuItem.StartPrintCarDetailsMenu();
                     break;
 
                 case 5:

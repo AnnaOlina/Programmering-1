@@ -8,5 +8,6 @@ namespace Programmering_1
 {
     internal class Wheel
     {
+        // Her skal der oprettes hjul eller dæk på et tidspunkt, tror jeg.
     }
 }

@@ -7,16 +7,23 @@ namespace Programmering_1
         /* Lav et privat felt, hvor jeg kan gemme en bil
          * private static Car bil
          */
+        // Klasseniveau variabel til at gemme biler
+        private static List<Car> cars = new List<Car>();
+
+
         static void Main(string[] args)
         {
             while (true)
             {
-                Console.WriteLine("Hovedmenu\nTast relevant tal og tryk enter for at valg af nedenstående: \n");
-                Console.WriteLine("1. Read Car Details.\n");
-                Console.WriteLine("2. Drive.\n");
+                Console.WriteLine("---Hovedmenu---\nTast relevant tal og tryk enter for at valg af nedenstående: \n");
+                Console.WriteLine("1. Tilføj bil: \n");
+                Console.WriteLine("2. Tilføj køretur til en bil: \n");
+                //Console.WriteLine("1. Read Car Details.\n");
+                //Console.WriteLine("2. Drive.\n");
                 Console.WriteLine("3. IsPalindrome.\n");
                 Console.WriteLine("4. Print Car Details.\n");
-                Console.WriteLine("5. Afslut programmet.\n");
+                Console.WriteLine("5. Print All Trips for a Car.\n");
+                Console.WriteLine("6. Afslut programmet.\n");
 
                 int værdi = int.Parse(Console.ReadLine());
                 Menu(værdi);
@@ -49,8 +56,12 @@ namespace Programmering_1
                         break;
 
                     case 5:
-                        Console.WriteLine("\nAfslut programmet.");
+                        Console.WriteLine("\nPrint alle køreture for en bil.");
                         break;
+
+                    case 6:
+                        Console.WriteLine("\nAfslut programmet.");
+                        return;
 
                     default:
                         Console.WriteLine(værdi + " er ikke en mulighed. Vælg et tal mellem 1 og 5.");

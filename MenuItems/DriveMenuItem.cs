@@ -43,7 +43,7 @@ namespace Programmering_1.MenuItems
             double TripPriceTur1 = tur1.CalculateTripPrice(bil1.KmPrLiter, 13.5);  // Man skal altid skrive double, når man vil lave en ny varieabel som f.eks. her.
             
             // Vi starter bilen (bil1) og kører en tur (bil1, tur1).
-            bil1.TurnEngineOn();
+            //bil1.TurnEngineOn();
             bil1.Drive(tur1);
             Console.WriteLine();
             
@@ -67,6 +67,8 @@ namespace Programmering_1.MenuItems
 
             Car bil2 = new Car("VW", "Up!", FuelType.Benzin, 'M', 2016, 212000, 20.5);
             bil2.Drive(tur1);
+            bil2.PrintAllTrips();
+            bil2.PrintCarDetails();
 
             Console.ReadKey();
         }

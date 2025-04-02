@@ -35,8 +35,8 @@
           string model,
           int year,
           char gear)
-          //int odometer,
-          //double kmPrLiter)
+        //int odometer,
+        //double kmPrLiter)
         {
             _brand = brand;
             _model = model;
@@ -224,27 +224,39 @@
          * Det vil sige, at her gemmes de ture bilen har kørt.
          */
 
+        // Metoder
+        public void StartEngine()
+        {
+            if (_isEngineOn)
+            {
+                throw new InvalidOperationException("Engine is already running.");
+            }
+            _isEngineOn = true;
+        }
+
+        public void StopEngine()
+        {
+            if (!_isEngineOn)
+            {
+                throw new InvalidOperationException("Engine is already stopped.");
+            }
+            _isEngineOn = false;
+        }
+
+
         public void Drive(Trip nyKøretur)
         {
-            if (IsEngineOn  == false)
+            if (!_isEngineOn)
             {
-                Console.WriteLine("Du skal starte din " + Brand + " " + Model + " inden du kan køre en tur med den.");
-                return;
+                //throw new InvalidOperationException("Engine is not running. Cannot drive.");
+                StartEngine();
             }
-            Odometer += nyKøretur.Distance;
-            _trips.Add(nyKøretur);
-            Console.WriteLine("Nu har du kørt en tur med din " + Brand + " " + Model + ".");
-        }
 
-        public void TurnEngineOn()
-        {
-            IsEngineOn = true;
-        }
+                Odometer += nyKøretur.Distance;
+                _trips.Add(nyKøretur);
+                Console.WriteLine("Nu har du kørt en tur med din " + Brand + " " + Model + ".");
+            }
 
-        public void TurnEngineOff()
-        {
-            IsEngineOn = false;
-        }
 
         // Opret metode PrintAllTrips() som lægger turene sammen.
 

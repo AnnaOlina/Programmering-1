@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programmering_1
 {
-    internal class Trip
+    public class Trip
     {
         private double _distance;   // Attributter, private.
         private DateTime _tripDate;

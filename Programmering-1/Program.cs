@@ -13,8 +13,7 @@ namespace Programmering_1
 
         static void Main(string[] args)
         {
-            while (true)
-            {
+            while (true) {
                 Console.WriteLine("---Hovedmenu---\nTast relevant tal og tryk enter for at valg af nedenstående: \n");
                 Console.WriteLine("1. Tilføj bil: \n");
                 Console.WriteLine("2. Tilføj køretur til en bil: \n");
@@ -33,8 +32,7 @@ namespace Programmering_1
 
             static void Menu(int værdi)
             {
-                switch (værdi)
-                {
+                switch (værdi) {
                     case 1:
                         Console.WriteLine("\nReadCarDetails.");
                         ReadCarDetailsMenuItem.StartReadCarDetailsMenu();

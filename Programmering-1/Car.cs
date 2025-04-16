@@ -74,10 +74,12 @@
             get { return _brand; }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value)) {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
                     _brand = value;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("Name cannot be empty");
                 }
             }
@@ -88,10 +90,12 @@
             get { return _model; }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value)) {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
                     _model = value;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("Name cannot be empty");
                 }
             }
@@ -108,10 +112,12 @@
             get { return _gear; }
             set
             {
-                if (!char.IsWhiteSpace(value)) {
+                if (!char.IsWhiteSpace(value))
+                {
                     _gear = value;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("Gear cannot be empty");
                 }
 
@@ -123,10 +129,12 @@
             get { return _year; }
             set
             {
-                if (value >= 1900) {
+                if (value >= 1900)
+                {
                     _year = value;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("Year cannot be empty");
                 }
 
@@ -138,10 +146,12 @@
             get { return _odometer; }
             set
             {
-                if (value >= 0) {
+                if (value >= 0)
+                {
                     _odometer = value;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("Odometer cannot be empty");
                 }
 
@@ -153,10 +163,12 @@
             get { return _kmPrLiter; }
             set
             {
-                if (double.IsPositive(value)) {
+                if (double.IsPositive(value))
+                {
                     _kmPrLiter = value;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("Km pr./liter cannot be empty");
                 }
 
@@ -215,7 +227,8 @@
         // Metoder
         public void StartEngine()
         {
-            if (_isEngineOn) {
+            if (_isEngineOn)
+            {
                 throw new InvalidOperationException("Engine is already running.");
             }
             _isEngineOn = true;
@@ -223,16 +236,17 @@
 
         public void StopEngine()
         {
-            if (!_isEngineOn) {
+            if (!_isEngineOn)
+            {
                 throw new InvalidOperationException("Engine is already stopped.");
             }
             _isEngineOn = false;
         }
 
-
         public void Drive(Trip nyKøretur)
         {
-            if (!_isEngineOn) {
+            if (!_isEngineOn)
+            {
                 //throw new InvalidOperationException("Engine is not running. Cannot drive.");
                 //StartEngine();
                 Console.WriteLine("Motoren er ikke startet, så du kan ikke køre.");
@@ -244,12 +258,12 @@
             Console.WriteLine("Nu har du kørt en tur med din " + Brand + " " + Model + ".");
         }
 
-
         // Opret metode PrintAllTrips() som lægger turene sammen.
 
         public void PrintAllTrips()
         {
-            for (int i = 0; i < _trips.Count; i++) {
+            for (int i = 0; i < _trips.Count; i++)
+            {
                 _trips[i].PrintTripDetails();
             }
         }
